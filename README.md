@@ -1,5 +1,7 @@
 # Fibonacci-Calculator
 
+## Environment
+- python 3.7.1
 ## How to run
 - Install project dependencies
 ```bash
@@ -26,8 +28,7 @@ $ python3 server.py --ip 0.0.0.0 --port 8080
 $ python3 client.py --ip localhost --port 8080 --order 10
 ```
 
-- Test
-To test POST method
+- To test POST method
 ```bash
 # You will get 55
 $ curl -X POST -H "Content-Type: application/json" http://127.0.0.1:8000/rest/fibonacci/ -d "{\"order\":\"10\"}"
@@ -43,7 +44,7 @@ and you shold get
 }
 '''
 ```
-To test GET method
+- To test GET method
 ```bash
 $ curl http://localhost:8000/rest/logs
 ```
