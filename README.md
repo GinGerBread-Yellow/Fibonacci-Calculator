@@ -20,7 +20,7 @@ $ pip3 install -r requirements.txt
 $ cd rest_server && make
 $ cd fib_server && make
 ```
-- start docker
+- start docker (at fibonacci_calculator/ )
 ```
 fib_calculator$ docker run -d -it -p 1883:1883 --name con -v $(PWD)/mosquitto.conf:/mosquitto/config/mosquitto.conf eclipse-mosquitto
 ```
