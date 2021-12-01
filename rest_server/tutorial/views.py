@@ -59,20 +59,22 @@ class FiboView(APIView):
 
                 request = fib_pb2.FibRequest()
                 request.order = fiborder
-                try:
-                    response = stub.Compute(request)
-                    # resdict = {}
-                    # resdict.update(serializer.data)
-                    # resdict['value'] = response.value
-                    # res = FibResItemSerializer(data=resdict)
-                    self.client.publish(topic='log', payload=response.value)
-                    return Response({"status": "success", "data": response.value}, status=status.HTTP_200_OK)
+                # try:
+                response = stub.Compute(request)
+                # resdict = {}
+                # resdict.update(serializer.data)
+                # resdict['value'] = response.value
+                # res = FibResItemSerializer(data=resdict)
+                print("get")
+                self.client.publish(topic='log', payload=fiborder)
+                print("success")
+                return Response({"status": "success", "data": response.value}, status=status.HTTP_200_OK)
                     # if res.is_valid():
                     #     return Response({"status": "success", "data": res.data}, status=status.HTTP_200_OK)
                     # else:
                     #     raise Exception
-                except Exception as e:
-                    return Response({"status": "error", "data": "error"}, status=status.HTTP_400_BAD_REQUEST)
+                # except Exception as e:
+                #     return Response({"status": "error", "data": e.args}, status=status.HTTP_400_BAD_REQUEST)
         else:
             return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 

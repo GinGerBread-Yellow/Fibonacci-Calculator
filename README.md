@@ -22,7 +22,7 @@ $ cd fib_server && make
 ```
 - start docker
 ```
-fib_calculator$ docker run -d -it -p 1883:1883 --name con -v "$(pwd)/mosquitto.conf:/mosquitto/config/mosquitto.conf" eclipse-mosquitto
+fib_calculator$ docker run -d -it -p 1883:1883 --name con -v $(PWD)/mosquitto.conf:/mosquitto/config/mosquitto.conf eclipse-mosquitto
 ```
 - to stop docker
 ```
